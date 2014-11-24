@@ -1,0 +1,33 @@
+<div id = "login">
+    <%= link_to 'Already a member?', login_path %>
+</div>
+
+<h1>Register New User</h1>
+<div>
+    <% if flash[:status] == true %>
+    <p><%= flash[:alert] %></p>
+    <% elsif flash[:status] == false %>
+    <% flash[:alert].each do |error| %>
+      <p><%= error %></p>
+    <%end%>
+  <%end%>
+</div>
+
+<%= form_for @user do |user| %>
+  <div>
+    <%= user.label(:name, "Full Name") %>
+    <%= user.text_field :name %>
+  </div>
+
+  <div>
+    <%= user.label(:password, "Password") %>
+    <%= user.password_field :password %>
+  </div>
+  <div>
+    <%= user.label(:password_confirmation, "Confirm Password") %>
+    <%= user.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= submit_tag "Register" %>
+  </div>
+<% end %>

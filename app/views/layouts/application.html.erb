@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+<% if session[:user_id] %>
+  <div id = "logout">
+    <%= link_to 'Logout', logout_path %>
+  </div>
+<%else%>
+  <div id="register">
+    <%= link_to 'Not a member?', register_path %> 
+  </div>
+  <% end %>
+</header>
+
+<%= yield %>
+
+</body>
+</html>
