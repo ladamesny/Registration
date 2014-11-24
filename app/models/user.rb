@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 require 'digest/md5'
   before_save :encrypt_password
 
+  mount_uploader :image, ImageUploader
   validates :name,
     presence: true,
     length: { minimum: 4, allow_blank: true}

@@ -13,7 +13,7 @@
   <%end%>
 </div>
 
-<%= form_for @user do |user| %>
+<%= form_for @user, :html => {:multipart => true}  do |user| %>
   <div>
     <%= user.label(:name, "Full Name") %>
     <%= user.text_field :name %>
@@ -27,6 +27,10 @@
     <%= user.label(:password_confirmation, "Confirm Password") %>
     <%= user.password_field :password_confirmation %>
   </div>
+  <div>
+    <%= user.label "Profile image: "%>
+    <%= user.file_field :image %>
+  </div> <br>
   <div>
     <%= submit_tag "Register" %>
   </div>
